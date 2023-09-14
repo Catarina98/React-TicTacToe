@@ -8,23 +8,25 @@ function Home() {
                     Select mode
                 </div>
 
-                <button className="primary-button">
-                    <div className="text text--32">
-                        Vs AI
-                    </div>
-                </button>
+                <div className="container-modes">
+                    <button className="primary-button">
+                        <div className="text text--32">
+                            Vs AI
+                        </div>
+                    </button>
 
-                <button className="primary-button">
-                    <div className="text text--32">
-                        Simple board
-                    </div>
-                </button>
+                    <button className="primary-button" onClick={() => window.location.href = '/game'}>
+                        <div className="text text--32">
+                            Simple board
+                        </div>
+                    </button>
 
-                <button className="primary-button">
-                    <div className="text text--32">
-                        9 boards
-                    </div>
-                </button>
+                    <button className="primary-button">
+                        <div className="text text--32">
+                            9 boards
+                        </div>
+                    </button>
+                </div>
             </div>
         </>
     );
