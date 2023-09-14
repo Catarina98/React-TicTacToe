@@ -1,6 +1,6 @@
 import React from 'react';
 // import {Routes, Route, useNavigate, Link} from 'react-router-dom';
-import Game from "./Game";
+// import Game from "./Game";
 
 function Welcome() {
     // const navigate = useNavigate();
