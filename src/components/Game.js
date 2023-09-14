@@ -18,6 +18,9 @@ function Game() {
     setCurrentMove(nextMove);
   }
 
+  // keep the game start, but improve button
+  // keep the last step and next step, but improve button
+  // to implement - remove play by clicking on the current move
   const moves = history.map((squares, move) => {
     const description = move > 0 ? `Go to move #${move}` : 'Go to game start';
     return description;

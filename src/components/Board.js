@@ -1,6 +1,8 @@
 import React from 'react';
 import Square from './Square';
 
+// The lines are all the ways it is possible to win
+//return the winner or null
 function calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -36,6 +38,7 @@ function Board({ xIsNext, squares, onPlay }) {
   );
 
   const winner = calculateWinner(squares);
+  // add to status a draw
   const status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (

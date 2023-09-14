@@ -1,3 +1,20 @@
+/*Welcome container*/
+.container-welcome {
+  padding: 130px 74px;
+}
+
+.container-welcome .primary-button {
+  margin-top: 90px;
+}
+
+/*Home container*/
+.container-home {
+  padding: 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
 /* Game container */
 .game {
   display: flex;
@@ -63,18 +80,34 @@
   padding-left: 20px;
 }
 
-/* Button styles */
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 6px 12px;
-  margin: 5px 0;
-  border-radius: 4px;
+.primary-button {
+  border-radius: 6px;
+  background-color: rgba(58, 49, 77, 0.70);
   cursor: pointer;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
   transition: background-color 0.3s ease-in-out;
+  width: 100%;
 }
 
-button:hover {
-  background-color: #0056b3;
+.primary-button:hover {
+  background-color: rgba(58, 49, 77, 0.85);
+}
+
+.primary-button:focus {
+  background-color: #3A314D;
+}
+
+/*Text styles*/
+.text {
+  color: #ffffff;
+}
+
+.text.text--32 {
+  font-size: 32px;
+}
+
+.text.text--48 {
+  font-size: 48px;
 }
