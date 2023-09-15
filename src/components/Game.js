@@ -55,7 +55,8 @@ function Game() {
             <div className="game-board">
                 <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
             </div>
-            {/*<GameInfo moves={moves} jumpTo={jumpTo} />*/}
+            
+            <GameInfo moves={moves} jumpTo={jumpTo} />
         </div>
     );
 }
