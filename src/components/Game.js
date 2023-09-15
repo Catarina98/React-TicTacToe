@@ -31,21 +31,25 @@ function Game() {
     return (
         <div className="container-game">
             <div className="content-header">
-                <XIcon fill="red"/>
+                <img src={XIcon} alt="X" />
                 
                 <div className="win-count">
                     <div className="square-count">
                         1
                     </div>
                     
-                    :
+                    <div className="divisor">
+                        <div className="dot"></div>
+                        
+                        <div className="dot"></div>
+                    </div>
 
                     <div className="square-count">
                         1
                     </div>
                 </div>
-                
-                <OIcon fill="red" />
+
+                <img src={OIcon} alt="O" />
             </div>
             
             <div className="game-board">
