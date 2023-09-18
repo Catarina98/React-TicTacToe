@@ -147,6 +147,10 @@
   height: 24px;
 }
 
+.icon-disabled {
+  filter: opacity(0.5);
+}
+
 /*Button styles*/
 .primary-button {
   border-radius: 6px;

@@ -31,7 +31,9 @@ function Game() {
     return (
         <div className="container-game">
             <div className="content-header">
-                <img src={XIcon} alt="X" />
+                <div className={xIsNext ? "" : "icon-disabled"} >
+                    <img src={XIcon} alt="X" />
+                </div>
                 
                 <div className="win-count">
                     <div className="square-count">
@@ -49,7 +51,9 @@ function Game() {
                     </div>
                 </div>
 
-                <img src={OIcon} alt="O" />
+                <div className={xIsNext ? "icon-disabled" : ""} >
+                    <img src={OIcon} alt="O" />
+                </div>
             </div>
             
             <div className="game-board">
