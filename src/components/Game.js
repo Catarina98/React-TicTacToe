@@ -19,18 +19,18 @@ function Game() {
     }
     
     function endGame(xWin, oWin) {
-        if(xWin && !oWin)
+        const count = xWin ? xWinCount + 1 : oWin ? oWinCount + 1 : null;
+        
+        if(xWin)
         {
-            const count = xWinCount + 1;
-            
             setXWinCount(count);
         }
-        else if(!xWin && oWin)
+        else if(oWin)
         {
-            const count = oWinCount + 1;
-
             setOWinCount(count);
         }
+        
+        jumpTo(0); 
     }
 
     function jumpTo(nextMove) {

@@ -64,6 +64,10 @@ function Board({xIsNext, squares, onPlay, onEndGame}) {
         {
             onEndGame(false, true);
         }
+        else 
+        {
+            onEndGame(false, false);
+        }
         
         setIsOpen(false);
     }
