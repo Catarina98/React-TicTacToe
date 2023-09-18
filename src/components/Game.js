@@ -7,6 +7,8 @@ import GameInfo from './GameInfo';
 function Game() {
     const [history, setHistory] = useState([Array(9).fill(null)]);
     const [currentMove, setCurrentMove] = useState(0);
+    const [xWinCount, setXWinCount] = useState(0);
+    const [oWinCount, setOWinCount] = useState(0);
     const xIsNext = currentMove % 2 === 0;
     const currentSquares = history[currentMove];
 
@@ -14,6 +16,21 @@ function Game() {
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length - 1);
+    }
+    
+    function endGame(xWin, oWin) {
+        if(xWin && !oWin)
+        {
+            const count = xWinCount + 1;
+            
+            setXWinCount(count);
+        }
+        else if(!xWin && oWin)
+        {
+            const count = oWinCount + 1;
+
+            setOWinCount(count);
+        }
     }
 
     function jumpTo(nextMove) {
@@ -37,7 +54,7 @@ function Game() {
                 
                 <div className="win-count">
                     <div className="square-count">
-                        1
+                        {xWinCount}
                     </div>
                     
                     <div className="divisor">
@@ -47,7 +64,7 @@ function Game() {
                     </div>
 
                     <div className="square-count">
-                        1
+                        {oWinCount}
                     </div>
                 </div>
 
@@ -57,7 +74,7 @@ function Game() {
             </div>
             
             <div className="game-board">
-                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay}/>
+                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onEndGame={endGame}/>
             </div>
             
             <GameInfo moves={moves} jumpTo={jumpTo} />

@@ -30,7 +30,7 @@ function calculateWinner(squares) {
     return null;
 }
 
-function Board({xIsNext, squares, onPlay}) {
+function Board({xIsNext, squares, onPlay, onEndGame}) {
     function handleClick(i) {
         if (calculateWinner(squares) || squares[i]) {
             return;
@@ -56,6 +56,15 @@ function Board({xIsNext, squares, onPlay}) {
     }, [status]);
     
     const handleClose = () => {
+        if(winner === 'X')
+        {
+            onEndGame(true, false);
+        }
+        else if(winner === 'O')
+        {
+            onEndGame(false, true);
+        }
+        
         setIsOpen(false);
     }
 
