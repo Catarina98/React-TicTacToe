@@ -27,7 +27,7 @@ function Game() {
         const description = move > 0 ? `Go to move #${move}` : 'Go to game start';
         return description;
     });
-
+    
     return (
         <div className="container-game">
             <div className="content-header">

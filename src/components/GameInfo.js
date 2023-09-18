@@ -20,7 +20,7 @@ function GameInfo({moves, jumpTo}) {
 
         if(goTo === 1)
         {
-            console.log("===1 ");
+            console.log("===1");
             
             if (currentStep < 9) {
                 setCurrentStep(currentStep + 1);
@@ -32,7 +32,7 @@ function GameInfo({moves, jumpTo}) {
         }
         else if(goTo === -1)
         {
-            console.log("===-1 ");
+            console.log("===-1");
             
             if (currentStep > 1) {
 
