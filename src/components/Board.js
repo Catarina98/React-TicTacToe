@@ -41,7 +41,7 @@ function Board({xIsNext, squares, onPlay, onEndGame}) {
     }
 
     const renderSquare = (i) => (
-        <Square value={squares[i]} onSquareClick={() => handleClick(i)}/>
+        <Square value={squares[i]} onSquareClick={() => handleClick(i)}/> //Create Board9 and here call Board
     );
 
     const winner = calculateWinner(squares);
