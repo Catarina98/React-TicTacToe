@@ -13,7 +13,7 @@ function GameInfo({moves, currentMove, jumpTo}) {
         <div className="game-options">
             <div className="game-option" onClick={() => window.location.href = '/home'}>
                 <img src={HomeIcon} alt="Home" />
-            </div>s
+            </div>
 
             <div className="game-option" onClick={() => jumpTo(0)}>
                 <img src={RestartIcon} alt="Restart" />
@@ -26,16 +26,6 @@ function GameInfo({moves, currentMove, jumpTo}) {
             <button className="game-option" onClick={() => jumpBackForward(false)} disabled={currentMove === moves.length - 1}>
                 <img src={NextIcon} alt="Next" />
             </button>
-            
-            {/*<div className="game-info">*/}
-            {/*    <ol>*/}
-            {/*        {moves.map((description, move) => (*/}
-            {/*            <li key={move}>*/}
-            {/*                <button onClick={() => jumpTo(move)}>{description}</button>*/}
-            {/*            </li>*/}
-            {/*        ))}*/}
-            {/*    </ol>*/}
-            {/*</div>*/}
         </div>
     );
 }

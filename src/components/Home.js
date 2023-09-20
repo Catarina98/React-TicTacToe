@@ -21,7 +21,7 @@ function Home() {
                         </div>
                     </button>
 
-                    <button className="primary-button">
+                    <button className="primary-button" onClick={() => window.location.href = '/game'}>
                         <div className="text text--32">
                             9 boards
                         </div>

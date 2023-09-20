@@ -3,6 +3,7 @@ import Board from './Board';
 import XIcon from './x.svg';
 import OIcon from './o.svg';
 import GameInfo from './GameInfo';
+import Boards9 from "./Boards9";
 
 function Game() {
     const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -74,7 +75,8 @@ function Game() {
             </div>
             
             <div className="game-board">
-                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onEndGame={endGame}/>
+                {/*<Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onEndGame={endGame}/>*/}
+                <Boards9 xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onEndGame={endGame}/>
             </div>
             
             <GameInfo moves={moves} currentMove={currentMove} jumpTo={jumpTo} />
