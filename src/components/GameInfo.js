@@ -1,67 +1,31 @@
-import React, { useState } from 'react';
 import HomeIcon from './home.svg';
 import RestartIcon from './restart.svg';
 import BackIcon from './back.svg';
 import NextIcon from './next.svg';
 
-function GameInfo({moves, jumpTo}) {
-    const [currentStep, setCurrentStep] = useState(0);
-
-    const restartGame = () => {
-        jumpTo(0);
-        
-        setCurrentStep(0);
-    }
-
-    const handleClick = (goTo) => {
-        console.log("count - " + moves.length);
-        setCurrentStep(moves.length);
-        console.log("initial - " + currentStep);
-
-        if(goTo === 1)
-        {
-            console.log("===1");
-            
-            if (currentStep < 9) {
-                setCurrentStep(currentStep + 1);
-
-                console.log("+1 - " + currentStep);
-                
-                jumpTo(currentStep);
-            }
-        }
-        else if(goTo === -1)
-        {
-            console.log("===-1");
-            
-            if (currentStep > 1) {
-
-                setCurrentStep(currentStep - 1);
-
-                console.log("-1 - " + currentStep);
-
-                jumpTo(currentStep);
-            }
-        }
+function GameInfo({moves, currentMove, jumpTo}) {
+    function jumpBackForward(previous) {
+        var move = previous ? -1 : 1;
+        jumpTo(currentMove + move);
     }
     
     return (
         <div className="game-options">
             <div className="game-option" onClick={() => window.location.href = '/home'}>
                 <img src={HomeIcon} alt="Home" />
-            </div>
+            </div>s
 
-            <div className="game-option" onClick={restartGame}>
+            <div className="game-option" onClick={() => jumpTo(0)}>
                 <img src={RestartIcon} alt="Restart" />
             </div>
 
-            <div className="game-option" onClick={() => handleClick(-1)}>
+            <button className="game-option" onClick={() => jumpBackForward(true)} disabled={currentMove === 0}>
                 <img src={BackIcon} alt="Back" />
-            </div>
+            </button>
 
-            <div className="game-option" onClick={() => handleClick(1)}>
+            <button className="game-option" onClick={() => jumpBackForward(false)} disabled={currentMove === moves.length - 1}>
                 <img src={NextIcon} alt="Next" />
-            </div>
+            </button>
             
             {/*<div className="game-info">*/}
             {/*    <ol>*/}
