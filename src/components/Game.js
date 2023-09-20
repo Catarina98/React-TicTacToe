@@ -77,7 +77,7 @@ function Game() {
                 <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onEndGame={endGame}/>
             </div>
             
-            <GameInfo moves={moves} jumpTo={jumpTo} />
+            <GameInfo moves={moves} currentMove={currentMove} jumpTo={jumpTo} />
         </div>
     );
 }
