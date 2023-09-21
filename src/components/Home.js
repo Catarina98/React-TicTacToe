@@ -9,7 +9,7 @@ function Home() {
                 </div>
 
                 <div className="container-modes">
-                    <button className="primary-button">
+                    <button className="primary-button" onClick={() => window.location.href = '/gameAI'}>
                         <div className="text text--32">
                             Vs AI
                         </div>
@@ -21,7 +21,7 @@ function Home() {
                         </div>
                     </button>
 
-                    <button className="primary-button" onClick={() => window.location.href = '/game'}>
+                    <button className="primary-button" onClick={() => window.location.href = '/game9'}>
                         <div className="text text--32">
                             9 boards
                         </div>

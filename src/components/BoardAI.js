@@ -21,22 +21,45 @@ function calculateWinner(squares) {
             return squares[a];
         }
     }
-    
+
     if(!squares.includes(null))
     {
         return 'D';
     }
-    
+
     return null;
 }
 
-function Board({xIsNext, squares, onPlay, onEndGame}) {
-    function handleClick(i) {
+function getAIMove(squares) {
+    const emptySquares = squares.reduce((acc, value, index) => {
+        if (value === null) {
+            acc.push(index);
+        }
+        return acc;
+    }, []);
+
+    const randomIndex = Math.floor(Math.random() * emptySquares.length);
+    return emptySquares[randomIndex];
+}
+
+function BoardAI({xIsNext, squares, onPlay, onEndGame}) {
+    async function handleClick(i) {
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
         const nextSquares = squares.slice();
-        nextSquares[i] = xIsNext ? 'X' : 'O';        
+        nextSquares[i] = 'X';
+        onPlay(nextSquares);
+
+        if (calculateWinner(squares) || squares[i]) { //why it does not enter here?
+            console.log("win");
+            return;
+        }
+
+        await new Promise(resolve => setTimeout(resolve, 300));
+
+        const aiMove = getAIMove(nextSquares);
+        nextSquares[aiMove] = 'O';
         onPlay(nextSquares);
     }
 
@@ -54,7 +77,7 @@ function Board({xIsNext, squares, onPlay, onEndGame}) {
             setIsOpen(true);
         }
     }, [status]);
-    
+
     const handleClose = () => {
         if(winner === 'X')
         {
@@ -64,18 +87,18 @@ function Board({xIsNext, squares, onPlay, onEndGame}) {
         {
             onEndGame(false, true);
         }
-        else 
+        else
         {
             onEndGame(false, false);
         }
-        
+
         setIsOpen(false);
     }
 
     return (
         <>
             <Popup isOpen={isOpen} handleClose={handleClose} winner={winner} />
-            
+
             <div className="board">
                 {renderSquare(0)}
                 {renderSquare(1)}
@@ -91,4 +114,4 @@ function Board({xIsNext, squares, onPlay, onEndGame}) {
     );
 }
 
-export default Board;
+export default BoardAI;

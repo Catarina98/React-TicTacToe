@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import Board from './Board';
 import XIcon from './x.svg';
 import OIcon from './o.svg';
 import GameInfo from './GameInfo';
+import Boards9 from "./Boards9";
 
-function Game() {
+function Game9() {
     const [history, setHistory] = useState([Array(9).fill(null)]);
     const [currentMove, setCurrentMove] = useState(0);
     const [xWinCount, setXWinCount] = useState(0);
@@ -17,10 +17,10 @@ function Game() {
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length - 1);
     }
-    
+
     function endGame(xWin, oWin) {
         const count = xWin ? xWinCount + 1 : oWin ? oWinCount + 1 : null;
-        
+
         if(xWin)
         {
             setXWinCount(count);
@@ -29,8 +29,8 @@ function Game() {
         {
             setOWinCount(count);
         }
-        
-        jumpTo(0); 
+
+        jumpTo(0);
     }
 
     function jumpTo(nextMove) {
@@ -44,22 +44,22 @@ function Game() {
         const description = move > 0 ? `Go to move #${move}` : 'Go to game start';
         return description;
     });
-    
+
     return (
         <div className="container-game">
             <div className="content-header">
                 <div className={xIsNext ? "" : "icon-disabled"} >
                     <img src={XIcon} alt="X" />
                 </div>
-                
+
                 <div className="win-count">
                     <div className="square-count">
                         {xWinCount}
                     </div>
-                    
+
                     <div className="divisor">
                         <div className="dot"></div>
-                        
+
                         <div className="dot"></div>
                     </div>
 
@@ -72,14 +72,14 @@ function Game() {
                     <img src={OIcon} alt="O" />
                 </div>
             </div>
-            
+
             <div className="game-board">
-                <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onEndGame={endGame}/>
+                <Boards9 xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} onEndGame={endGame}/>
             </div>
-            
+
             <GameInfo moves={moves} currentMove={currentMove} jumpTo={jumpTo} />
         </div>
     );
 }
 
-export default Game;
+export default Game9;
