@@ -31,6 +31,7 @@ function calculateWinner(squares) {
 }
 
 function getAIMove(squares) {
+    //THIS IS THE WORKING CODE (RANDOM)
     const emptySquares = squares.reduce((acc, value, index) => {
         if (value === null) {
             acc.push(index);
@@ -40,7 +41,72 @@ function getAIMove(squares) {
 
     const randomIndex = Math.floor(Math.random() * emptySquares.length);
     return emptySquares[randomIndex];
+    
+    
+    
+    //AI IMPLEMENTED
+    // if(squares.includes(null)) { //not for now 
+    //     const myArray = [0, 2, 6, 8];
+    //
+    //     return Math.floor(Math.random() * myArray.length);
+    // }
+    // else if(!squares.includes('O')) {
+    //     //TODO
+    // }
+    // else {
+    //     const getMyIndex = ICanWin(squares);
+    //    
+    //     if(getMyIndex !== null) {
+    //         return getMyIndex;
+    //     }
+    //     else {
+    //         const getAdvIndex = AdvCanWin(squares);
+    //
+    //         if(getAdvIndex !== null) {
+    //             return getAdvIndex;
+    //         }
+    //         else {
+    //             if (squares.includes('X')) { //not correct - only 1 time 
+    //                 //get index of play
+    //                 //if index == 0 - return 8
+    //                 //if index == 2 - return 6
+    //                 //if index == 6 - return 2
+    //                 //if index == 8 - return 0
+    //             }
+    //             else {
+    //                 //TODO
+    //             }
+    //         }
+    //     }
+    // }
 }
+
+//AI IMPLEMENTED
+// function ICanWin(squares)
+// {
+//     if(squares.filter(item => item === 'O').length) { //not for now this is not correct - if squares container al least 2 times '0'
+//         //get index of my plays
+//         //verify if i can win
+//         //yes - return index of play to win
+//         //no - return null;
+//     }
+//     else {
+//         return null;
+//     }
+// }
+//
+// function AdvCanWin(squares)
+// {
+//     if(squares.filter(item => item === 'X').length) { //not for now this is not correct - if squares container al least 2 times 'X'
+//         //get index of adv plays
+//         //verify if adv can win
+//         //yes - return index of play to win
+//         //no - return null;
+//     }
+//     else {
+//         return null;
+//     }
+// }
 
 function BoardAI({xIsNext, squares, onPlay, onEndGame}) {
     async function handleClick(i) {
